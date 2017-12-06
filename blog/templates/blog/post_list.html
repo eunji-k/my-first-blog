@@ -1,24 +1,27 @@
+{% load staticfiles %}
 <html>
-
     <head>
-        <title>M__M blog</title>
+        <title>Django Girls blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
     </head>
     <body>
         <div>
-            <h1><a href="/">M_M's Blog</a></h1>
+            <h1><a href="/">Django Girls Blog</a></h1>
         </div>
 
-    {% for post in posts %}
-        <div>
-            <p>published: {{ post.published_date }}</p>
-            <h1><a href="">{{ post.title }}</a></h1>
-            <p>{{ post.text|linebreaksbr }} </p>
-
-        </div>
-    {% endfor %}
-
-        <div>
-            http://eunjikim.pythonanywhere.com/ url
-        </div>
+        {% for post in posts %}
+            <div>
+                <p>published: {{ post.published_date }}</p>
+                <h1><a href="">{{ post.title }}</a></h1>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+            <div>
+                http://eunjikim.pythonanywhere.com/ url
+            </div>
+        {% endfor %}
     </body>
 </html>
